@@ -15,20 +15,28 @@
         <tr>
             {% if item.done %}
             <td><strike>{{ item.name }}</strike></td>
-            {% else  %}
+            {% else %}
             <td>{{ item.name }}</td>
             {% endif %}
             <td>
+                <a href="/toggle/{{ item.id }}">
+                    <button>Toggle</button>
+                </a>
+            </td>
+            <td>
                 <a href="/edit/{{ item.id }}">
-                    <button>edit</button>
+                    <button>Edit</button>
+                </a>
+            </td>
+            <td>
+                <a href="/delete/{{ item.id }}">
+                    <button>Delete</button>
                 </a>
             </td>
         </tr>
         {% empty %}
         <tr>
-            <td>
-                You have nothing to do.
-            </td>
+            <td>You have nothing to do.</td>
         </tr>
         {% endfor %}
     </table>
